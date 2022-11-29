@@ -12,6 +12,6 @@ cmake_minimum_required(VERSION 3.17)
 include(CTest)
 
 find_package(TBB)
-
+find_package(HPX)
 
 add_subdirectory(src)
