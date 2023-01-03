@@ -1,5 +1,6 @@
 # Shared memory parallelism in Modern C++
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9962352f833a43e29ad75356180ffb46)](https://www.codacy.com/gh/STEllAR-GROUP/parallelnumericalintegration/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=STEllAR-GROUP/parallelnumericalintegration&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9962352f833a43e29ad75356180ffb46)](https://www.codacy.com/gh/STEllAR-GROUP/parallelnumericalintegration/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=STEllAR-GROUP/parallelnumericalintegration&amp;utm_campaign=Badge_Grade) [![CircleCI](https://circleci.com/gh/STEllAR-GROUP/parallelnumericalintegration/.svg?style=shield)](https://circleci.com/gh/STEllAR-GROUP/parallelnumericalintegration)
+
 
 Supplementary materials for the workshop paper. 
 
