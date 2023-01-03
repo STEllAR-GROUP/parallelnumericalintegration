@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: stevenrbrandt/cxxex-src
+    steps:
+      - checkout
+      - run: mkdir build
+      - run: cmake  -S . -B build
+      - run: cd build && make -j 2
+      - run: cd build && ctest
