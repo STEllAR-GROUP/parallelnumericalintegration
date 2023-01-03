@@ -19,5 +19,11 @@ endif()
 
 if(${HPX_FOUND})
     add_hpx_executable(taylor_par_hpx SOURCES taylor_par_hpx.cpp)
-    add_test(NAME "HPX:_Taylor" COMMAND taylor_par_hpx 100 0.5)
+    add_test(NAME "HPX:_Taylor_Par" COMMAND taylor_par_hpx 100 0.5)
+    add_hpx_executable(taylor_future_hpx SOURCES taylor_future_hpx.cpp)
+    add_test(NAME "HPX:_Taylor_Future" COMMAND taylor_future_hpx 100 0.5 3)
 endif()
+
+add_executable(taylor_future taylor_future.cpp)
+target_link_libraries(taylor_future PRIVATE Threads::Threads)
+add_test(NAME "Parallel:_Taylor_future" COMMAND taylor_future 100 0.5 3)
