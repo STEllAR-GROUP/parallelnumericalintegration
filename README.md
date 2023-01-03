@@ -9,6 +9,6 @@ The code for all exmaples is available here.
 
 Prerequirements:
 
-  * [CMake](https://cmake.org/)
-  * C++ compiler supporting C++ 17
-  * [HPX](https://github.com/STEllAR-GROUP/hpx) (Optinoal)
+* [CMake](https://cmake.org/)
+* C++ compiler supporting C++ 17
+* [HPX](https://github.com/STEllAR-GROUP/hpx) (Optinoal)
