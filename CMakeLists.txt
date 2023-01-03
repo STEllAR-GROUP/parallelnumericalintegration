@@ -30,5 +30,6 @@ endif()
 
 find_package(TBB)
 find_package(HPX)
+find_package(OpenMP)
 
 add_subdirectory(src)
