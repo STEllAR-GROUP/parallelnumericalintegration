@@ -18,6 +18,6 @@ endif()
 endif()
 
 if(${HPX_FOUND})
-    add_hpx_executable(taylor_hpx SOURCES taylor_hpx.cpp)
-    add_test(NAME "HPX:_Taylor" COMMAND taylor_hpx 100 0.5)
+    add_hpx_executable(taylor_par_hpx SOURCES taylor_par_hpx.cpp)
+    add_test(NAME "HPX:_Taylor" COMMAND taylor_par_hpx 100 0.5)
 endif()
