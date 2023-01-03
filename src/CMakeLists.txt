@@ -28,7 +28,7 @@ add_executable(taylor_future taylor_future.cpp)
 target_link_libraries(taylor_future PRIVATE Threads::Threads)
 add_test(NAME "Parallel:_Taylor_future" COMMAND taylor_future 100 0.5 3)
 
-if(NOT APPLE AND ${FOUND_OPENMP})
+if(NOT APPLE AND "${FOUND_OPENMP}")
    add_executable(taylor_par_openmp taylor_par_openmp.cpp)
    target_compile_options(taylor_par_openmp PUBLIC "${OpenMP_CXX_FLAGS}" )
    target_link_libraries(taylor_par_openmp PUBLIC OpenMP::OpenMP_CXX)
