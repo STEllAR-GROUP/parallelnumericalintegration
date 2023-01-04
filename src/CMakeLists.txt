@@ -22,8 +22,11 @@ if(${HPX_FOUND})
     add_test(NAME "HPX:_Taylor_Par" COMMAND taylor_par_hpx 100 0.5)
     add_hpx_executable(taylor_future_hpx SOURCES taylor_future_hpx.cpp)
     add_test(NAME "HPX:_Taylor_Future" COMMAND taylor_future_hpx 100 0.5 3)
-    add_hpx_executable(taylor_future_coroutine_hpx SOURCES taylor_future_coroutine_hpx.cpp)
-    add_test(NAME "HPX:_Taylor_Future_Coroutine" COMMAND taylor_future_coroutine_hpx 100 0.5 3)
+
+    if(${HAVE_FLAG_STD_CXX20})
+        #add_hpx_executable(taylor_future_coroutine_hpx SOURCES taylor_future_coroutine_hpx.cpp)
+        #add_test(NAME "HPX:_Taylor_Future_Coroutine" COMMAND taylor_future_coroutine_hpx 100 0.5 3)
+    endif()
 endif()
 
 add_executable(taylor_future taylor_future.cpp)
