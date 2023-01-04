@@ -19,8 +19,7 @@ int main(int args, char** argv) {
   std::vector<double> parts(n);
   std::iota(parts.begin(), parts.end(), 1);
 
-auto start = std::chrono::high_resolution_clock::now();
-
+  auto start = std::chrono::high_resolution_clock::now();
 
   hpx::for_each(
       hpx::execution::par, parts.begin(), parts.end(),
@@ -29,10 +28,9 @@ auto start = std::chrono::high_resolution_clock::now();
   double result =
       hpx::reduce(hpx::execution::par, parts.begin(), parts.end(), 0.);
 
-
   auto end = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double> diff = end - start;
-   std::cout << hpx::get_os_thread_count() << "," << diff.count() << std::endl;
+  std::cout << hpx::get_os_thread_count() << "," << diff.count() << std::endl;
 
   std::cout << "Difference of Taylor and C++ result " << result - std::log1p(x)
             << " after " << n << " iterations." << std::endl;

@@ -19,12 +19,12 @@ int main(int args, char** argv) {
   std::vector<double> parts(n);
   std::iota(parts.begin(), parts.end(), 1);
 
-  #pragma openmp parallel for
-  for( size_t i = 0 ; i < parts.size(); i++)
-   { e = std::pow(-1.0, e + 1) * std::pow(x, e) / (e); });
+#pragma openmp parallel for
+  for (size_t i = 0; i < parts.size(); i++) {
+    e = std::pow(-1.0, e + 1) * std::pow(x, e) / (e);
+  });
 
-  double result =
-      std::reduce(parts.begin(), parts.end(), 0.);
+  double result = std::reduce(parts.begin(), parts.end(), 0.);
 
   std::cout << "Difference of Taylor and C++ result " << result - std::log1p(x)
             << " after " << n << " iterations." << std::endl;
