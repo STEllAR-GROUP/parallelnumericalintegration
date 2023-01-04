@@ -22,6 +22,11 @@ int main(int args, char** argv) {
 
   size_t partitions = std::round(n / amount);
 
+auto start = std::chrono::high_resolution_clock::now();
+
+
+
+
   std::vector<std::future<double>> futures;
   for (size_t i = 0; i < amount; i++) {
     size_t begin = i * partitions;
@@ -41,6 +46,11 @@ int main(int args, char** argv) {
 
   double result = 0;
   for (size_t i = 0; i < futures.size(); i++) result += futures[i].get();
+
+ auto end = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double> diff = end - start;
+   std::cout << amount << "," << diff.count() << std::endl;
+
 
   std::cout << "Difference of Taylor and C++ result " << result - std::log1p(x)
             << " after " << n << " iterations." << std::endl;

@@ -12,6 +12,7 @@
 #include <numeric>
 #include <string>
 #include <vector>
+#include <chrono>
 
 int main(int args, char** argv) {
   int n = std::stoi(argv[1]);
@@ -22,6 +23,8 @@ int main(int args, char** argv) {
   std::iota(parts.begin(), parts.end(), 1);
 
   size_t partitions = std::round(n / amount);
+
+auto start = std::chrono::high_resolution_clock::now();
 
   std::vector<hpx::future<double>> futures;
   for (size_t i = 0; i < amount; i++) {
@@ -49,6 +52,10 @@ int main(int args, char** argv) {
         for (size_t i = 0; i < futures.size(); i++) result += futures[i].get();
       })
       .get();
+  
+  auto end = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double> diff = end - start;
+  std::cout << amount << "," << diff.count() << std::endl;
 
   std::cout << "Difference of Taylor and C++ result " << result - std::log1p(x)
             << " after " << n << " iterations." << std::endl;
