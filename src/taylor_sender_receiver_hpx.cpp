@@ -1,3 +1,8 @@
+//  Copyright (c) 2022 AUTHORS
+//
+//  SPDX-License-Identifier: BSL-1.0
+//  Distributed under the Boost Software License, Version 1.0. (See accompanying
+//  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 #include <hpx/execution.hpp>
 #include <hpx/execution/algorithms/sync_wait.hpp>
 #include <hpx/execution_base/sender.hpp>
@@ -42,9 +47,13 @@ double run(size_t n, size_t num_threads, double x) {
   return result;
 }
 
-int main() {
-  double x = .1;
-  double r = run(10000, 10, x);
-  double a = log(1 + x);
-  std::cout << "r=" << r << " ~ " << a << " => " << fabs(r - a) << std::endl;
+int main(int args, char** argv) {
+  int threads = std::stoi(argv[3]);
+  double x = std::stod(argv[2]);
+  int n = std::stoi(argv[1]);
+  double result = run(n, threads , x);
+
+ std::cout << "Difference of Taylor and C++ result " << result - std::log1p(x)
+            << " after " << n << " iterations." << std::endl;
+  return EXIT_SUCCESS;
 }
