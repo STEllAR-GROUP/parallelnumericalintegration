@@ -51,7 +51,12 @@ int main(int args, char** argv) {
   int threads = std::stoi(argv[3]);
   double x = std::stod(argv[2]);
   int n = std::stoi(argv[1]);
+
+  auto start = std::chrono::high_resolution_clock::now();
   double result = run(n, threads, x);
+   auto end = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double> diff = end - start;
+  std::cout << threads << "," << diff.count() << std::endl;
 
   std::cout << "Difference of Taylor and C++ result " << result - std::log1p(x)
             << " after " << n << " iterations." << std::endl;
