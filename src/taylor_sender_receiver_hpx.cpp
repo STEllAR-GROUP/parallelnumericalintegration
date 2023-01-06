@@ -51,9 +51,9 @@ int main(int args, char** argv) {
   int threads = std::stoi(argv[3]);
   double x = std::stod(argv[2]);
   int n = std::stoi(argv[1]);
-  double result = run(n, threads , x);
+  double result = run(n, threads, x);
 
- std::cout << "Difference of Taylor and C++ result " << result - std::log1p(x)
+  std::cout << "Difference of Taylor and C++ result " << result - std::log1p(x)
             << " after " << n << " iterations." << std::endl;
   return EXIT_SUCCESS;
 }
