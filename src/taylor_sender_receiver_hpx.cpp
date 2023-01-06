@@ -48,9 +48,9 @@ double run(size_t n, size_t num_threads, double x) {
 }
 
 int main(int args, char** argv) {
-  int threads = std::stoi(argv[3]);
+  size_t threads = std::stoi(argv[3]);
   double x = std::stod(argv[2]);
-  int n = std::stoi(argv[1]);
+  size_t n = std::stoi(argv[1]);
 
   auto start = std::chrono::high_resolution_clock::now();
   double result = run(n, threads, x);
