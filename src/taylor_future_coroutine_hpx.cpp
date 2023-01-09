@@ -56,8 +56,13 @@ int main(int args, char** argv) {
   int n = std::stoi(argv[1]);
   double x = std::stod(argv[2]);
   size_t amount = std::stoi(argv[3]);
-
+  
+  auto start = std::chrono::high_resolution_clock::now();
   double result = run(n, amount, x).get();
+
+  auto end = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double> diff = end - start;
+  std::cout << hpx::get_os_thread_count() << "," << diff.count() << std::endl;
   std::cout << "Difference of Taylor and C++ result " << result - std::log1p(x)
             << " after " << n << " iterations." << std::endl;
   return EXIT_SUCCESS;
