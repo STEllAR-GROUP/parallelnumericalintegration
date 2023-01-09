@@ -13,6 +13,12 @@
 #include <string>
 #include <vector>
 
+#ifdef __GNUC__ 
+#ifndef __APPLE__
+    #include <coroutine>
+#endif
+#endif
+
 hpx::future<double> run(size_t n, size_t amount, double x) {
   std::vector<double> parts(n);
   std::iota(parts.begin(), parts.end(), 1);
