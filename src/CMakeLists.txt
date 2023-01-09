@@ -23,15 +23,15 @@ if(${HPX_FOUND})
     add_hpx_executable(taylor_future_hpx SOURCES taylor_future_hpx.cpp)
     add_test(NAME "HPX:_Taylor_Future" COMMAND taylor_future_hpx 100 0.5 3)
 
-    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-        add_hpx_executable(taylor_future_coroutine_hpx SOURCES taylor_future_coroutine_hpx.cpp)
-        add_test(NAME "HPX:_Taylor_Future_Coroutine" COMMAND taylor_future_coroutine_hpx 100 0.5 3)
-    endif()
-
-
     if(${HAVE_FLAG_STD_CXX20})
+
+        if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+            add_hpx_executable(taylor_future_coroutine_hpx SOURCES taylor_future_coroutine_hpx.cpp)
+            add_test(NAME "HPX:_Taylor_Future_Coroutine" COMMAND taylor_future_coroutine_hpx 100 0.5 3)
+        endif()
+
         if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-            if (CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 10)
+            if (CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 11)
             add_hpx_executable(taylor_future_coroutine_hpx SOURCES taylor_future_coroutine_hpx.cpp)
             add_test(NAME "HPX:_Taylor_Future_Coroutine" COMMAND taylor_future_coroutine_hpx 100 0.5 3)
             target_compile_options(taylor_future_coroutine_hpx PUBLIC "-fcoroutines")
