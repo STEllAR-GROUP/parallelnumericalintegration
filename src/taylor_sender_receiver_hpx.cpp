@@ -54,7 +54,7 @@ int main(int args, char** argv) {
 
   auto start = std::chrono::high_resolution_clock::now();
   double result = run(n, threads, x);
-   auto end = std::chrono::high_resolution_clock::now();
+  auto end = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double> diff = end - start;
   std::cout << threads << "," << diff.count() << std::endl;
 
