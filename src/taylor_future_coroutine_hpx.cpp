@@ -44,7 +44,7 @@ hpx::future<double> run(size_t n, size_t amount, double x) {
 
   double result = 0;
 
-  auto futures2 = co_await hpx::when_all(std::move(futures));
+  auto futures2 = co_await std::move(hpx::when_all(std::move(futures)));
 
   for (size_t i = 0; i < futures2.size(); i++) result += co_await std::move(futures2[i]);
 
