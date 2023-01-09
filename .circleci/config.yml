@@ -7,5 +7,5 @@ jobs:
       - checkout
       - run: mkdir build
       - run: env CXX=clang++ LD_LIBRARY_PATH=/usr/local/lib64  cmake  -S . -B build
-      - run: cd build && env CXX=clang++ LD_LIBRARY_PATH=/usr/local/lib64 make -j 2
+      - run: cd build && env CXX=clang++ LD_LIBRARY_PATH=/usr/local/lib64 make -j 2 VERBOSE=1
       - run: cd build && env CXX=clang++ LD_LIBRARY_PATH=/usr/local/lib64 ctest
