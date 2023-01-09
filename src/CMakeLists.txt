@@ -31,7 +31,7 @@ if(${HPX_FOUND})
 
     if(${HAVE_FLAG_STD_CXX20})
         if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-            if (CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 10.0)
+            if (CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 10)
             add_hpx_executable(taylor_future_coroutine_hpx SOURCES taylor_future_coroutine_hpx.cpp)
             add_test(NAME "HPX:_Taylor_Future_Coroutine" COMMAND taylor_future_coroutine_hpx 100 0.5 3)
             target_compile_options(taylor_future_coroutine_hpx PUBLIC "-fcoroutines")
