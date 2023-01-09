@@ -56,7 +56,7 @@ int main(int args, char** argv) {
   int n = std::stoi(argv[1]);
   double x = std::stod(argv[2]);
   size_t amount = std::stoi(argv[3]);
-  
+
   auto start = std::chrono::high_resolution_clock::now();
   double result = run(n, amount, x).get();
 
