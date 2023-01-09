@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: stevenrbrandt/cxxex-src
+      - image: stevenrbrandt/clangme
     steps:
       - checkout
       - run: mkdir build
