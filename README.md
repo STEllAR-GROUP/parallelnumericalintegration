@@ -14,4 +14,4 @@ Prerequirements:
 * [CMake](https://cmake.org/)
 * C++ compiler supporting C++ 17. 
   * For coroutine and sender/receiver a C++ compiler supporting C++ 20. 
-* [HPX](https://github.com/STEllAR-GROUP/hpx) (Optinoal)
+* [HPX](https://github.com/STEllAR-GROUP/hpx) (Optional)
