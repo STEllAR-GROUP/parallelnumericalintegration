@@ -8,11 +8,8 @@
 
 module load gcc
 
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH//lustre/software/openmpi/arm21/4.1.2/lib
-
-
 date
-./benchmark.sh amd
+./benchmark.sh intel
 date
 
 

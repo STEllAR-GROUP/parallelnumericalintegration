@@ -2,9 +2,8 @@
 
 len=100000000
 path=$(pwd)
-# Taylor HPX parallel algorithms
 
-for i in {0..1}
+for i in {25..1}
 do
     data=""
     for j in {1..10}
@@ -18,7 +17,7 @@ do
     echo "$i,${list[${#list[*]}/2]},${list[0]},${list[${#list[*]}-1]}" >> $1_taylor_future_median.csv
 done
 
-for i in {0..1}
+for i in {25..1}
 do
     data=""
     for j in {1..10}
@@ -32,7 +31,7 @@ do
     echo "$i,${list[${#list[*]}/2]},${list[0]},${list[${#list[*]}-1]}" >> $1_taylor_future_hpx_median.csv
 done
 
-for i in {1..1}
+for i in {25..1}
 do
     data=""
     for j in {1..10}
