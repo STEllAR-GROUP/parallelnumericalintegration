@@ -5,8 +5,6 @@
 
 - Diehl, Patrick, Steven R. Brandt, and Hartmut Kaiser. "Shared memory parallelism in Modern C++ and HPX." arXiv preprint [arXiv:2302.07191](https://arxiv.org/abs/2302.07191) (2023).
 
-The code for all exmaples is available here. 
-
 ## Buliding the examples
 
 Prerequirements:
