@@ -13,6 +13,12 @@
 #include <string>
 #include <vector>
 
+#ifdef __GNUC__
+#ifndef __APPLE__
+#include <coroutine>
+#endif
+#endif
+
 hpx::future<double> run(size_t n, size_t amount, double x) {
   std::vector<double> parts(n);
   std::iota(parts.begin(), parts.end(), 1);
@@ -38,9 +44,10 @@ hpx::future<double> run(size_t n, size_t amount, double x) {
 
   double result = 0;
 
-  auto futures2 = co_await hpx::when_all(std::move(futures));
+  auto futures2 = co_await std::move(hpx::when_all(std::move(futures)));
 
-  for (size_t i = 0; i < futures2.size(); i++) result += co_await futures2[i];
+  for (size_t i = 0; i < futures2.size(); i++)
+    result += co_await std::move(futures2[i]);
 
   co_return result;
 }
@@ -50,7 +57,12 @@ int main(int args, char** argv) {
   double x = std::stod(argv[2]);
   size_t amount = std::stoi(argv[3]);
 
+  auto start = std::chrono::high_resolution_clock::now();
   double result = run(n, amount, x).get();
+
+  auto end = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double> diff = end - start;
+  std::cout << hpx::get_os_thread_count() << "," << diff.count() << std::endl;
   std::cout << "Difference of Taylor and C++ result " << result - std::log1p(x)
             << " after " << n << " iterations." << std::endl;
   return EXIT_SUCCESS;

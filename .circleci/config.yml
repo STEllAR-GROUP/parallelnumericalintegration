@@ -2,10 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: stevenrbrandt/cxxex-src
+      - image: stevenrbrandt/clangmi
     steps:
       - checkout
       - run: mkdir build
-      - run: cmake  -S . -B build
-      - run: cd build && make -j 2
-      - run: cd build && ctest
+      - run: env CXX=clang++ LD_LIBRARY_PATH=/usr/local/lib64 cmake  -S . -B build -DCMAKE_CXX_FLAGS=-stdlib=libc++
+      - run: cd build && env CXX=clang++ LD_LIBRARY_PATH=/usr/local/lib64 make -j 2 VERBOSE=1
+      - run: cd build && env CXX=clang++ LD_LIBRARY_PATH=/usr/local/lib64 ctest
