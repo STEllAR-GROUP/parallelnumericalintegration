@@ -4,6 +4,7 @@
 ## Publications
 
 - Diehl, Patrick, Steven R. Brandt, and Hartmut Kaiser. "Shared memory parallelism in Modern C++ and HPX." arXiv preprint [arXiv:2302.07191](https://arxiv.org/abs/2302.07191) (2023).
+- Diehl, Patrick, Steven R. Brandt, and Hartmut Kaiser. "Shared memory parallelism in Modern C++ and HPX." In Asynchronous Many-Task Systems and Applications: First International Workshop, WAMTA 2023, Baton Rouge, LA, USA, February 15–17, 2023, Proceedings 2023 May 11 (pp. 27-38). Cham: Springer Nature Switzerland. [10.1007/978-3-031-32316-4_3](https://link.springer.com/chapter/10.1007/978-3-031-32316-4_3)
 
 ## Buliding the examples
 
