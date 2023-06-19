@@ -13,7 +13,7 @@ do
     IFS=',' read -ra my_array <<< "${array[0]}"
     data="$data ${my_array[1]}"
     done
-    list=(`for n in $data; do printf "%015.06f\n" $n; done | sort -n`);
+    list=(`for n in $data; do printf "%015.06f\n" $n; done | sort -n`)
     echo "$i,${list[${#list[*]}/2]},${list[0]},${list[${#list[*]}-1]}" >> $1_taylor_future_median.csv
 done
 
