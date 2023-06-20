@@ -43,7 +43,8 @@ if(${HPX_FOUND})
 endif()
 
 add_executable(taylor_future taylor_future.cpp)
-target_link_libraries(taylor_future PRIVATE Threads::Threads)
+#target_link_libraries(taylor_future PRIVATE Threads::Threads)
+target_link_libraries(taylor_future Threads::Threads)
 add_test(NAME "Parallel:_Taylor_future" COMMAND taylor_future 100 0.5 3)
 
 if(NOT APPLE AND "${FOUND_OPENMP}")
