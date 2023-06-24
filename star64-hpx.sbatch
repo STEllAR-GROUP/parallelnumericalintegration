@@ -9,7 +9,7 @@
 #module load gcc/12.1.0
 
 date
-./benchmark.sh pine64
+./benchmark.sh star64
 date
 
 

@@ -9,7 +9,7 @@
 #module load gcc/12.1.0
 
 date
-./benchmark.sh rv64g
+./benchmark.sh hifiveu
 date
 
 
