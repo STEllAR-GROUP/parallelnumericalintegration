@@ -28,7 +28,11 @@ check_cxx_compiler_flag(-std=c++17 HAVE_FLAG_STD_CXX17)
     endif()
 endif()
 
+if(${TBB_FOUND})
 find_package(TBB)
+else()
+find_package(Threads)
+endif()
 find_package(HPX)
 find_package(OpenMP)
 
