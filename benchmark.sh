@@ -3,7 +3,7 @@
 len=100000000
 path=$(pwd)
 
-iter = 25
+itr = 25
 
 if [ $1 = "rv64g" ]; then
 itr = 4
