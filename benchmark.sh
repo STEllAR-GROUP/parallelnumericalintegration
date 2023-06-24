@@ -11,7 +11,7 @@ elif [ $1 = "star64" ]; then
 itr = 4
 fi
 
-for i in {itr..1}
+for i in $(eval echo "{$itr..1}")
 do
     data=""
     for j in {1..10}
@@ -31,7 +31,7 @@ do
     echo "$i,${list[${#list[*]}/2]},${list[0]},${list[${#list[*]}-1]}" >> $1_taylor_future_median.csv
 done
 
-for i in {itr..1}
+for i in $(eval echo "{$itr..1}")
 do
     data=""
     for j in {1..10}
@@ -51,7 +51,7 @@ do
     echo "$i,${list[${#list[*]}/2]},${list[0]},${list[${#list[*]}-1]}" >> $1_taylor_future_hpx_median.csv
 done
 
-for i in {itr..1}
+for i in $(eval echo "{$itr..1}")
 do
     data=""
     for j in {1..10}
@@ -71,7 +71,7 @@ do
     echo "$i,${list[${#list[*]}/2]},${list[0]},${list[${#list[*]}-1]}" >>  $1_taylor_par_hpx_median.csv
 done
 
-for i in {itr..1}
+for i in $(eval echo "{$itr..1}")
 do
     data=""
     for j in {1..10}
@@ -92,7 +92,7 @@ do
 done
 
 
-for i in {itr..1}
+for i in $(eval echo "{$itr..1}")
 do
     data=""
     for j in {1..10}
