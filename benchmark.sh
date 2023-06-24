@@ -18,8 +18,10 @@ do
     do
     if [ $1 = "pine64" ]; then
        result=$(${path}/build/src/taylor_future ${len} 0.5 $i)
-    else
+    elif [ $1 = "rv64g" ]; then
        result=$(srun --cpus-per-task=4 --ntasks-per-node=1 --ntasks-per-core=1 ${path}/build/src/taylor_future ${len} 0.5 $i)  
+    else
+       result=$(srun ${path}/build/src/taylor_future ${len} 0.5 $i)
     fi
     array=($result)
     IFS=',' read -ra my_array <<< "${array[0]}"
@@ -36,8 +38,10 @@ do
     do
     if [ $1 = "pine64" ]; then
        result=$(${path}/build/src/taylor_future_hpx ${len} 0.5 $i --hpx:threads=$i)
+    elif [ $1 = "rv64g" ]; then
+       result=$(srun --cpus-per-task=4 --ntasks-per-node=1 --ntasks-per-core=1 ${path}/build/src/taylor_future ${len} 0.5 $i)  
     else
-       result=$(srun --cpus-per-task=4 --ntasks-per-node=1 --ntasks-per-core=1 ${path}/build/src/taylor_future_hpx ${len} 0.5 $i --hpx:threads=$i)
+       result=$(srun ${path}/build/src/taylor_future ${len} 0.5 $i)
     fi
     array=($result)
     IFS=',' read -ra my_array <<< "${array[0]}"
@@ -54,8 +58,10 @@ do
     do	    
     if [ $1 = "pine64" ]; then
        result=$(${path}/build/src/taylor_par_hpx ${len} 0.5 --hpx:threads=$i)
+    elif [ $1 = "rv64g" ]; then
+       result=$(srun --cpus-per-task=4 --ntasks-per-node=1 --ntasks-per-core=1 ${path}/build/src/taylor_future ${len} 0.5 $i)  
     else
-       result=$(srun --cpus-per-task=4 --ntasks-per-node=1 --ntasks-per-core=1 ${path}/build/src/taylor_par_hpx ${len} 0.5 --hpx:threads=$i)
+       result=$(srun ${path}/build/src/taylor_future ${len} 0.5 $i)
     fi
     array=($result)
     IFS=',' read -ra my_array <<< "${array[0]}"
@@ -72,8 +78,10 @@ do
     do
     if [ $1 = "pine64" ]; then
        result=$(${path}/build/src/taylor_future_coroutine_hpx ${len} 0.5 $i --hpx:threads=$i)
+    elif [ $1 = "rv64g" ]; then
+       result=$(srun --cpus-per-task=4 --ntasks-per-node=1 --ntasks-per-core=1 ${path}/build/src/taylor_future ${len} 0.5 $i)  
     else
-       result=$(srun --cpus-per-task=4 --ntasks-per-node=1 --ntasks-per-core=1 ${path}/build/src/taylor_future_coroutine_hpx ${len} 0.5 $i --hpx:threads=$i)
+       result=$(srun ${path}/build/src/taylor_future ${len} 0.5 $i)
     fi
     array=($result)
     IFS=',' read -ra my_array <<< "${array[0]}"
@@ -91,8 +99,10 @@ do
     do
     if [ $1 = "pine64" ]; then
        result=$(${path}/build/src/taylor_sender_receiver_hpx ${len} 0.5 $i --hpx:threads=$i)
+    elif [ $1 = "rv64g" ]; then
+       result=$(srun --cpus-per-task=4 --ntasks-per-node=1 --ntasks-per-core=1 ${path}/build/src/taylor_future ${len} 0.5 $i)  
     else
-       result=$(srun --cpus-per-task=4 --ntasks-per-node=1 --ntasks-per-core=1 ${path}/build/src/taylor_sender_receiver_hpx ${len} 0.5 $i --hpx:threads=$i)
+       result=$(srun ${path}/build/src/taylor_future ${len} 0.5 $i)
     fi
     array=($result)
     IFS=',' read -ra my_array <<< "${array[0]}"
