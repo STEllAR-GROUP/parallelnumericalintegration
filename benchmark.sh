@@ -1,14 +1,16 @@
 #!/bin/bash
 
+module load gcc/12.2.0
+
 len=100000000
 path=$(pwd)
 
-itr = 25
+itr=25
 
 if [ $1 = "hifiveu" ]; then
-itr = 4
+itr=4
 elif [ $1 = "star64" ]; then
-itr = 4
+itr=4
 fi
 
 for i in $(eval echo "{$itr..1}")
