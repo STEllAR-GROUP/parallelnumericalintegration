@@ -23,6 +23,13 @@ if(${HPX_FOUND})
     add_hpx_executable(taylor_future_hpx SOURCES taylor_future_hpx.cpp)
     add_test(NAME "HPX:_Taylor_Future" COMMAND taylor_future_hpx 100 0.5 3)
 
+    add_hpx_executable(set_future_hpx SOURCES set_future_hpx.cpp)
+    target_include_directories(set_future_hpx PUBLIC "util/")
+    add_test(NAME "HPX:_Set_Future" COMMAND set_future_hpx)
+
+
+
+
     if(${HAVE_FLAG_STD_CXX20})
 
         if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -43,7 +50,6 @@ if(${HPX_FOUND})
 endif()
 
 add_executable(taylor_future taylor_future.cpp)
-#target_link_libraries(taylor_future PRIVATE Threads::Threads)
 target_link_libraries(taylor_future Threads::Threads)
 add_test(NAME "Parallel:_Taylor_future" COMMAND taylor_future 100 0.5 3)
 
@@ -53,3 +59,6 @@ if(NOT APPLE AND "${FOUND_OPENMP}")
    target_link_libraries(taylor_par_openmp PUBLIC OpenMP::OpenMP_CXX)
    add_test(NAME "OpenMP:_Taylor" COMMAND taylor_par_openmp) 
 endif()
+
+
+
