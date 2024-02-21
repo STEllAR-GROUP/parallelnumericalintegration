@@ -21,7 +21,7 @@ size_t compute_pixel(std::complex<double> c) {
         z = z * z + c;
         //std::cout << "i " << i << std::endl;
         if (abs(z) > 2.0) {
-                return i;
+                return (double)i + (2.0 - ( log(abs(z)) / log(2.0)  ));
         }
     }
     return 0;
