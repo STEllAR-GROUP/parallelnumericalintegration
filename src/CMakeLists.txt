@@ -25,7 +25,7 @@ if(${HPX_FOUND})
 
     add_hpx_executable(set_future_hpx SOURCES set_future_hpx.cpp)
     target_include_directories(set_future_hpx PUBLIC "util/")
-    add_test(NAME "HPX:_Set_Future" COMMAND set_future_hpx)
+    add_test(NAME "HPX:_Set_Future" COMMAND set_future_hpx 3840 2160)
 
 
 

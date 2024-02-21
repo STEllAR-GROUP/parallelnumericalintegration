@@ -14,17 +14,17 @@ const double pi = M_PI;
 const int max_color = 256;
 
 size_t compute_pixel(std::complex<double> c) {
-    //std::cout <<  " compute " << c << std::endl; 
-    std::complex<double> z(0, 0);
+  // std::cout <<  " compute " << c << std::endl;
+  std::complex<double> z(0, 0);
 
-    for (size_t i = 0; i < max_iterations; i++) {   
-        z = z * z + c;
-        //std::cout << "i " << i << std::endl;
-        if (abs(z) > 2.0) {
-                return (double)i + (2.0 - ( log(abs(z)) / log(2.0)  ));
-        }
+  for (size_t i = 0; i < max_iterations; i++) {
+    z = z * z + c;
+    // std::cout << "i " << i << std::endl;
+    if (abs(z) > 2.0) {
+      return (double)i + (2.0 - (log(abs(z)) / log(2.0)));
     }
-    return 0;
+  }
+  return 0;
 }
 
 #endif
