@@ -39,6 +39,11 @@ if(${HPX_FOUND})
         if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
             add_hpx_executable(taylor_future_coroutine_hpx SOURCES taylor_future_coroutine_hpx.cpp)
             add_test(NAME "HPX:_Taylor_Future_Coroutine" COMMAND taylor_future_coroutine_hpx 100 0.5 3)
+
+            add_hpx_executable(set_future_coroutine_hpx SOURCES set_future_coroutine_hpx.cpp)
+            target_include_directories(set_future_coroutine_hpx PUBLIC "util/")
+            add_test(NAME "HPX:_Set_Future_Coroutine" COMMAND set_future_coroutine_hpx 3840 2160)
+        
         endif()
 
         if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
