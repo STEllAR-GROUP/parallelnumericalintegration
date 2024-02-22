@@ -34,8 +34,6 @@ int main(int args, char** argv) {
   int pixel_x = std::stoi(argv[1]);
   int pixel_y = std::stoi(argv[2]);
 
-  std::cout << pixel_x << " " << pixel_y << std::endl;
-
   PBM pbm(pixel_x, pixel_y);
 
   auto start = std::chrono::high_resolution_clock::now();
