@@ -5,9 +5,8 @@
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 #include <cmath>
 #include <cstdlib>
+#include <hpx/hpx.hpp>
 #include <hpx/hpx_main.hpp>
-#include <hpx/numeric.hpp>
-#include <hpx/parallel/algorithm.hpp>
 #include <iostream>
 #include <kernel.hpp>
 #include <numeric>
