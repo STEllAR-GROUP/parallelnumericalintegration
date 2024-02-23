@@ -53,7 +53,7 @@ if(${HPX_FOUND})
             target_compile_options(taylor_future_coroutine_hpx PUBLIC "-fcoroutines")
             
             add_hpx_executable(set_future_coroutine_hpx SOURCES set_future_coroutine_hpx.cpp)
-	    target_compile_options(set_future_coroutine_hpx PUBLIC "-fcoroutines")
+	        target_compile_options(set_future_coroutine_hpx PUBLIC "-fcoroutines")
             target_include_directories(set_future_coroutine_hpx PUBLIC "util/")
             add_test(NAME "HPX:_Set_Future_Coroutine" COMMAND set_future_coroutine_hpx 3840 2160)
     
@@ -61,6 +61,11 @@ if(${HPX_FOUND})
         endif()  
         add_hpx_executable(taylor_sender_receiver_hpx SOURCES taylor_sender_receiver_hpx.cpp)
         add_test(NAME "HPX:_Taylor_Sender_Receiver" COMMAND taylor_sender_receiver_hpx 100 0.5 3)
+
+        add_hpx_executable(set_sender_receiver_hpx SOURCES set_sender_receiver_hpx.cpp)
+        target_include_directories(set_sender_receiver_hpx PUBLIC "util/")
+        add_test(NAME "HPX:_Set_Sender_Receiver" COMMAND set_sender_receiver_hpx 3840 2160)
+
     endif()
 endif()
 
