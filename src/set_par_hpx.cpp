@@ -40,7 +40,7 @@ int main(int args, char** argv) {
   std::chrono::duration<double> diff = end - start;
   std::cout << pixel_x * pixel_y << "," << diff.count() << std::endl;
 
-  // pbm.save("image_par.pbm");
+  pbm.save("image_par.pbm");
 
   return EXIT_SUCCESS;
 }
