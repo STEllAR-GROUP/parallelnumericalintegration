@@ -12,6 +12,8 @@
 #include <numeric>
 #include <string>
 #include <vector>
+#include <pbm.hpp>
+#include <kernel.hpp>
 
 #ifdef __GNUC__
 #ifndef __APPLE__
@@ -51,7 +53,7 @@ int main(int args, char** argv) {
 
   auto start = std::chrono::high_resolution_clock::now();
 
-  double result = run(n, amount, x).get();
+  run(pixel_x, pixel_y, &pbm).get();
 
   auto end = std::chrono::high_resolution_clock::now();
   std::chrono::duration<double> diff = end - start;
