@@ -23,9 +23,6 @@ namespace tt = hpx::this_thread::experimental;
 void run(size_t pixel_x, size_t pixel_y, PBM* pbm) {
   thread_pool_scheduler sch{};
 
-  // size_t partition_size = pixel_x / hpx::get_os_thread_count();
-  // std::vector<double> partial_results(partition_size);
-
   sender auto s =
       schedule(sch) | bulk(pixel_x, [pixel_x, pixel_y, &pbm](auto i) {
         complex c =
